@@ -32,4 +32,20 @@ class Dictionary
       ' ' => ['..', '..', '..']
       }
   end
+
+  def translate_letter(letter)
+    @alphabet[letter]
+  end
+
+  def separate_word(word)
+    word.split("").map do |word|
+      word 
+    end
+  end
+
+  def translate_word(word)
+    separate_word(word).map do |letter|
+      translate_letter(letter)
+    end
+  end
 end
