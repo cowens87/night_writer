@@ -1,11 +1,3 @@
-  # input = File.open(ARGV[0], 'r')
-  # input_message = input.read
-  # input.close
+require './lib/english_file_manager'
 
-  # lowercased = input_message.downcase
-
-  # writer = File.open(ARGV[1], 'w')
-  # output = writer.write(lowercased)
-  # writer.close
-
-  # puts "Created #{ARGV[1]} containing #{lowercased.length} characters"
+night_writer = EnglishFileManager.new(ARGV[0], ARGV[1])
