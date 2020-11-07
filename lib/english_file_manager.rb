@@ -1,3 +1,5 @@
+require './lib/dictionary'
+
 class EnglishFileManager 
   attr_reader :incoming_message, :output
   
@@ -5,17 +7,18 @@ class EnglishFileManager
     @input = input
     @output = output
     read_english_message
-    write_message_to_braille
+    # write_message_to_braille
   end
 
   def read_english_message 
-    input = File.open(ARGV[0], 'r')
-    @incoming_message = input.read
+    input = File.open(@input, 'r')
+    @incoming_message = input.read.downcase.chomp
     input.close
   end
 
-  def downcase_characters
-    @incoming_message.downcase
+  def character_limit
+    require 'pry'; binding.pry
+    @incoming_message.scan((/.{1,80}/))
   end
 
   def write_message_to_braille
