@@ -56,9 +56,14 @@ class DictionaryTest < Minitest::Test
     assert_equal [['00', '0.', '0.'], ['.0', '0.', '..'],['00', '00', '..']], @dictionary.translate_word('pig')
   end
 
-  def test_it_can_convert_array_letter_to_letter_by_position
+  def test_it_can_break_each_letter_down_by_top_middle_and_bottom_index
     expected = [["0.", ".0"], ["00", "0."], ["..", ".."]]
     assert_equal expected, @dictionary.braille_split_top_mid_bottom('hi')
+  end
+
+  def test_it_can_convert_braille_array_into_linear_lines
+    expected = [["0.", ".0"], ["00", "0."], ["..", ".."]]
+    assert_equal expected, @dictionary.braille_columns_to_lines('hi')
   end
 
   def test_it_can_create_braille_word_structure
