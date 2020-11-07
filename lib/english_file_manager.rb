@@ -5,4 +5,10 @@ class EnglishFileManager
     @input = input
     @output = output
   end
+
+  def read_english_message 
+    input = File.open(ARGV[0], 'r')
+    input_message = input.read
+    input.close
+  end
 end
