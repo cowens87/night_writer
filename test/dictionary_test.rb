@@ -57,7 +57,7 @@ class DictionaryTest < Minitest::Test
   end
 
   def test_it_can_convert_array_letter_to_letter_by_position
-    expected = []
+    expected = [["0.", ".0"], ["00", "0."], ["..", ".."]]
     assert_equal expected, @dictionary.braille_rows_to_columns('hi')
   end
 
