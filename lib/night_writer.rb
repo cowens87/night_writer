@@ -1,6 +1,6 @@
-  # input = File.open(ARGV[0], 'r')
-  # input_message = input.read
-  # input.close
+  input = File.open(ARGV[0], 'r')
+  input_message = input.read
+  input.close
 
   lowercased = input_message.downcase
 

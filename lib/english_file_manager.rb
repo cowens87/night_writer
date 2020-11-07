@@ -1,5 +1,5 @@
 class EnglishFileManager 
-  attr_reader :input, :output
+  attr_reader :incoming_message, :output
   
   def initialize(input, output)
     @input = input
@@ -8,7 +8,7 @@ class EnglishFileManager
 
   def read_english_message 
     input = File.open(ARGV[0], 'r')
-    input_message = input.read
+    @incoming_message = input.read
     input.close
   end
 end
