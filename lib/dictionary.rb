@@ -49,12 +49,12 @@ class Dictionary
     end
   end
 
-  def braille_rows_to_columns(phrase)
+  def letter_split_top_mid_bottom(phrase)
     translate_word(phrase).transpose
   end
 
   def braille_columns_to_lines(phrase) 
-    braille_rows_to_columns(phrase).map do |column|
+    letter_split_top_mid_bottom(phrase).map do |column|
       column.join(",") + "\n"
     end
   end
