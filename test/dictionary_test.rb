@@ -62,13 +62,14 @@ class DictionaryTest < Minitest::Test
   end
 
   def test_it_can_convert_braille_array_into_linear_lines
-    expected = [["0.", ".0"], ["00", "0."], ["..", ".."]]
+    expected = ["0.,.0\n", "00,0.\n", "..,..\n"]
     assert_equal expected, @dictionary.braille_columns_to_lines('hi')
   end
 
   def test_it_can_create_braille_word_structure
     expected = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
-    
     assert_equal expected, @dictionary.translator('pigs fly')
+    expected = ["0.,.0\n", "00,0.\n", "..,..\n"]
+    assert_equal expected, @dictionary.translator('hi')
   end
 end
