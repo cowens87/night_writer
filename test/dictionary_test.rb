@@ -56,6 +56,11 @@ class DictionaryTest < Minitest::Test
     assert_equal [['00', '0.', '0.'], ['.0', '0.', '..'],['00', '00', '..']], @dictionary.translate_word('pig')
   end
 
+  def test_it_can_convert_array_letter_to_letter_by_position
+    expected = []
+    assert_equal expected, @dictionary.braille_rows_to_columns('hi')
+  end
+
   def test_it_can_create_braille_word_structure
     expected = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
     
