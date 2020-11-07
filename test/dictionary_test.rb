@@ -58,7 +58,7 @@ class DictionaryTest < Minitest::Test
 
   def test_it_can_convert_array_letter_to_letter_by_position
     expected = [["0.", ".0"], ["00", "0."], ["..", ".."]]
-    assert_equal expected, @dictionary.letter_split_top_mid_bottom('hi')
+    assert_equal expected, @dictionary.braille_split_top_mid_bottom('hi')
   end
 
   def test_it_can_create_braille_word_structure
