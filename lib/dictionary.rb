@@ -48,4 +48,18 @@ class Dictionary
       translate_letter(letter)
     end
   end
+
+  def braille_rows_to_columns(phrase)
+    translate_word(phrase).transpose
+  end
+
+  def braille_columns_to_lines(phrase) 
+    braille_rows_to_columns(phrase).map do |column|
+      column.join(",") + "\n"
+    end
+  end
+
+  def translator(phrase)
+    braille_columns_to_lines(phrase).join(",").gsub(",","")
+  end
 end
