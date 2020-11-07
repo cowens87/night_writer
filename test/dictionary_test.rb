@@ -69,7 +69,7 @@ class DictionaryTest < Minitest::Test
   def test_it_can_create_braille_word_structure
     expected = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
     assert_equal expected, @dictionary.translator('pigs fly')
-    expected = ["0.,.0\n", "00,0.\n", "..,..\n"]
+    expected = "0..0\n000.\n....\n"
     assert_equal expected, @dictionary.translator('hi')
   end
 end
