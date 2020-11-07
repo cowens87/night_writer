@@ -50,6 +50,5 @@ class DictionaryTest < Minitest::Test
 
   def test_it_can_translate_one_word_to_braille 
     assert_equal [['00', '0.', '0.'], ['.0', '0.', '..'],['00', '00', '..']], @dictionary.translate_word('pig')
-  
   end
 end
