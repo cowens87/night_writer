@@ -43,4 +43,8 @@ class DictionaryTest < Minitest::Test
       }
     assert_equal expected, @dictionary.alphabet
   end
+
+  def test_it_can_translate_one_letter_to_braille
+    assert_equal ['0.', '00', '..'], @dictionary.translate_letter('h')
+  end
 end
