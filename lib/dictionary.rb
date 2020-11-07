@@ -1,5 +1,6 @@
 class Dictionary 
   attr_reader :alphabet
+  
   def initialize
    @alphabet = {
       'a' => ['0.', '..', '..'],
