@@ -32,4 +32,8 @@ class Dictionary
       ' ' => ['..', '..', '..']
       }
   end
+
+  def translate_letter(letter)
+    @alphabet[letter]
+  end
 end
