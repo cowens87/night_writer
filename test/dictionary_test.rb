@@ -72,6 +72,8 @@ class DictionaryTest < Minitest::Test
   def test_it_can_convert_braille_array_into_linear_lines
     expected = ["0.,.0\n", "00,0.\n", "..,..\n"]
     assert_equal expected, @dictionary.braille_columns_to_lines('hi')
+    expected = ["00,0.\n", ".0,.0\n", "0.,0.\n"]
+    assert_equal expected, @dictionary.braille_columns_to_lines('no')
   end
 
   def test_it_can_create_braille_word_structure
