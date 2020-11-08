@@ -14,7 +14,7 @@ class EnglishFileManagerTest < Minitest::Test
   end
 
   def test_it_can_read_a_file
-    
-  
+    expected = 'Dear Wednesday I am sorry you are not Friday but at least you are not Monday or Sunday'
+    assert_equal expected, @manager.read_english_message
   end
 end
