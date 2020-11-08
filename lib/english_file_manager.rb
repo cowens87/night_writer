@@ -1,7 +1,7 @@
 require './lib/dictionary'
 
 class EnglishFileManager 
-  attr_reader :incoming_message, :output
+  attr_reader :incoming_message, :input, :output
   
   def initialize(input, output)
     @input  = input
