@@ -64,9 +64,9 @@ class Dictionary
     input.split("\n")
   end
 
-  # def num_of_letters(input)
-  #   (input.split[0].length)/2
-  # end
+  def num_of_letters(input)
+    (input.split[0].length)/2
+  end
 
   # def braille_string(input)
   #   linear = []
