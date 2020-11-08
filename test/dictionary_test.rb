@@ -97,6 +97,7 @@ class DictionaryTest < Minitest::Test
   end
 
   def test_it_can_find_braille_characters
-  
+    input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
+    assert_equal ['0.00..'], @dictionary.braille_character(input).first
   end
 end
