@@ -65,13 +65,13 @@ class Dictionary
   end
 
   def join_braille_characters(input)
-       array1 = []
-      strings = input.split("\n")
-      num_of_letters(input).times do
-       strings.each do |string|
-         array1 << [string.slice!(0..1)]
-       end
-     end
-     array1.join
+    braille_chars = []
+    positions = input.split("\n")
+    num_of_letters(input).times do
+      positions.each do |position|
+        braille_chars << [position.slice!(0..1)]
+      end
+    end
+    braille_chars.join
   end
 end
