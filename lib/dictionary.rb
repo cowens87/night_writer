@@ -35,7 +35,7 @@ class Dictionary
 
   def translate_letter(letter)
     @alphabet[letter].collect do |braille_char|
-      "#{braille_char}"
+      braille_char
     end
   end
 
