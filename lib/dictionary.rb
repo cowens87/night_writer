@@ -40,7 +40,7 @@ class Dictionary
   end
 
   def translate_word(word)
-    word.chars.map do |letter|
+    word.chars.collect do |letter|
       translate_letter(letter)
     end
   end
