@@ -11,7 +11,7 @@ class DictionaryTest < Minitest::Test
     assert_instance_of Dictionary, @dictionary
   end
 
-  def test_it_can_create_alphabet 
+  def test_it_can_create_an_alphabet 
     expected = {
       'a' => ['0.', '..', '..'],
       'b' => ['0.', '0.', '..'],

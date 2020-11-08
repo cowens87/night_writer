@@ -56,6 +56,7 @@ class EnglishFileManager
   end
   
   def translate_characters
+    require 'pry'; binding.pry
     character_limit.map do |phrase|
       Dictionary.new.translator(phrase)
     end.join('\n')
