@@ -6,15 +6,16 @@ class EnglishFileManager
   def initialize(input, output)
     @input  = input
     @output = output
-    # read_english_message
+    read_english_message
     # write_message_to_braille
   end
 
-  # def read_english_message 
-  #   input = File.open(@input, 'r')
-  #   @incoming_message = input.read.downcase.chomp
-  #   input.close
-  # end
+  def read_english_message 
+    pry
+    handle = File.open(@input, 'r')
+    @incoming_message = handle.read.downcase.chomp
+    handle.close
+  end
 
   #  def character_limit
   #   @incoming_message.scan((/.{1,80}/))

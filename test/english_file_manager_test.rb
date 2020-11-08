@@ -5,8 +5,8 @@ require './lib/night_writer'
 
 class EnglishFileManagerTest < Minitest::Test
   def setup
-    input    = './message.txt'
-    output   = './braille.txt'
+    input    = 'hello'
+    output   = "0.0.0.0.0.\n00.00.0..0\n....0.0.0.\n"
     @manager = EnglishFileManager.new(input, output)
   end
 
