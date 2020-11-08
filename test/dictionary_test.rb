@@ -87,12 +87,16 @@ class DictionaryTest < Minitest::Test
     input    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
     assert_equal 8, @dictionary.num_of_letters(input)
     input    = "0..0\n000.\n....\n"
-     assert_equal 2, @dictionary.num_of_letters(input)
+    assert_equal 2, @dictionary.num_of_letters(input)
   end
 
   def test_it_can_convert_braille_input_into_linear_string
     input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
     expected = "0.00..0..0..0.0.0.0.0.0.0..00........000.00..00.0.000.0.0.0.00.0.."
     assert_equal expected, @dictionary.join_braille_characters(input)
+  end
+
+  def test_it_can_find_braille_characters
+  
   end
 end
