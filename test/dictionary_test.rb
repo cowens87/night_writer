@@ -84,21 +84,21 @@ class DictionaryTest < Minitest::Test
 
   # Braille to English
   def test_it_can_create_strings_from_braille_block
-    block    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
+    input    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
     expected = ["00.000.0..000.00", "0.0.000...0.0..0", "0.....0.....0.00"]
-    assert_equal expected, @dictionary.separate_block_by_new_line(block)
+    assert_equal expected, @dictionary.separate_braille_by_new_line(input)
   end
 
   def test_it_can_determine_number_of_letters
-    block    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
-    assert_equal 8, @dictionary.num_of_letters(block)
-    block    = "0..0\n000.\n....\n"
-     assert_equal 2, @dictionary.num_of_letters(block)
+    input    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
+    assert_equal 8, @dictionary.num_of_letters(input)
+    input    = "0..0\n000.\n....\n"
+     assert_equal 2, @dictionary.num_of_letters(input)
   end
 
-  def test_it_can_convert_braille_block_into_linear_string
-    block    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
+  def test_it_can_convert_braille_input_into_linear_string
+    input    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
     expected = "00.000.0..000.000.0.000...0.0..00.....0.....0.00"
-    assert_equal expected, @dictionary.braille_string(block)
+    assert_equal expected, @dictionary.braille_string(input)
   end
 end

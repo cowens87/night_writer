@@ -60,7 +60,7 @@ class Dictionary
   end
 
   # Braille to English
-  def separate_block_by_new_line(input)
+  def separate_braille_by_new_line(input)
     input.split("\n")
   end
 
@@ -68,14 +68,14 @@ class Dictionary
     ((input.split[0].length) / 2)
   end
 
-  # def braille_string(input)
-  #   linear = []
-  #   num_of_letters(input).times do
-  #     create_strings(input).each do |string|
-  #       require 'pry'; binding.pry
-  #      linear << [string.slice!(0..1)]
-  #     end
-  #   end
-  #   linear.join 
-  # end
+  def braille_string(input)
+    linear = []
+    num_of_letters(input).times do
+      create_strings(input).each do |string|
+        require 'pry'; binding.pry
+       linear << [string.slice!(0..1)]
+      end
+    end
+    linear.join 
+  end
 end
