@@ -60,7 +60,7 @@ class Dictionary
   end
 
   # Braille to English
-  def create_strings(input)
+  def separate_block_by_new_line(input)
     input.split("\n")
   end
 
