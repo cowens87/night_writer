@@ -53,9 +53,12 @@ class DictionaryTest < Minitest::Test
   end
 
   def test_it_can_translate_one_word_to_braille 
-    assert_equal [['00', '0.', '0.'], ['.0', '0.', '..'],['00', '00', '..']], @dictionary.translate_word('pig')
-    assert_equal [["00", "0.", "0."], ["0.", ".0", "0."], ["00", "0.", "0."]], @dictionary.translate_word('pop')
-    assert_equal [["00", ".0", ".."], ["0.", "..", ".."], ["00", ".0", ".."]], @dictionary.translate_word('dad')
+    expected = [['00', '0.', '0.'], ['.0', '0.', '..'],['00', '00', '..']]
+    assert_equal expected, @dictionary.translate_word('pig')
+    expected = [["00", "0.", "0."], ["0.", ".0", "0."], ["00", "0.", "0."]]
+    assert_equal expected, @dictionary.translate_word('pop')
+    expected = [["00", ".0", ".."], ["0.", "..", ".."], ["00", ".0", ".."]]
+    assert_equal expected, @dictionary.translate_word('dad')
   end
 
   def test_it_can_break_each_letter_down_by_top_middle_and_bottom_index
@@ -89,7 +92,7 @@ class DictionaryTest < Minitest::Test
   def test_it_can_determine_number_of_letters
     block    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
     assert_equal 8, @dictionary.num_of_letters(block)
-    block     = "0..0\n000.\n....\n"
+    block    = "0..0\n000.\n....\n"
      assert_equal 2, @dictionary.num_of_letters(block)
   end
 
