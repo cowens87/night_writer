@@ -74,4 +74,14 @@ class Dictionary
     end
     braille_chars.join
   end
+
+  def separate_braille_chars(input)
+    join_braille_characters(input).scan(/.{6}/)
+  end
+
+  def braille_character(input)
+    separate_braille_chars(input).collect do |braille_letter|
+      [braille_letter]
+    end
+  end
 end
