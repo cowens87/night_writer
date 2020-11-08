@@ -80,10 +80,15 @@ class DictionaryTest < Minitest::Test
   end
 
   # Braille to English
+  def test_it_can_create_strings_from_braille_block
+    block    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
+    expected = ["00.000.0..000.00", "0.0.000...0.0..0", "0.....0.....0.00"]
+    assert_equal expected, @dictionary.create_strings(block)
+  end
 
-  def test_it_can_convert_braille_block_into_linear_string
-    block   = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
-    expected = "00.000.0..000.000.0.000...0.0..00.....0.....0.00"
-    assert_equal expected, @dictionary.braille_string(block)
-    end
+  # def test_it_can_convert_braille_block_into_linear_string
+  #   block    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
+  #   expected = "00.000.0..000.000.0.000...0.0..00.....0.....0.00"
+  #   assert_equal expected, @dictionary.braille_string(block)
+  #   end
 end

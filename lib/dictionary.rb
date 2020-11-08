@@ -60,15 +60,22 @@ class Dictionary
   end
 
   # Braille to English
-     def braille_string(input)
-      array1 = []
-      strings = input.split("\n")
-      letter_count = (input.split[0].length)/2
-      letter_count.times do
-       strings.each do |string|
-         array1 << [string.slice!(0..1)]
-       end
-     end
-     array1.join
-   end
+  def create_strings(input)
+    input.split("\n")
+  end
+
+  # def num_of_letters(input)
+  #   (input.split[0].length)/2
+  # end
+
+  # def braille_string(input)
+  #   linear = []
+  #   num_of_letters(input).times do
+  #     create_strings(input).each do |string|
+  #       require 'pry'; binding.pry
+  #      linear << [string.slice!(0..1)]
+  #     end
+  #   end
+  #   linear.join 
+  # end
 end
