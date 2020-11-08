@@ -65,6 +65,8 @@ class DictionaryTest < Minitest::Test
   def test_it_can_break_each_letter_down_by_top_middle_and_bottom_index
     expected = [["0.", ".0"], ["00", "0."], ["..", ".."]]
     assert_equal expected, @dictionary.braille_split_top_mid_bottom('hi')
+    expected = [["00", "0."], [".0", ".0"], ["0.", "0."]]
+    assert_equal expected, @dictionary.braille_split_top_mid_bottom('no')
   end
 
   def test_it_can_convert_braille_array_into_linear_lines
