@@ -67,7 +67,6 @@ class Dictionary
   def join_braille_characters(input)
        array1 = []
       strings = input.split("\n")
-      # letter_count = (input.split[0].length)/2
       num_of_letters(input).times do
        strings.each do |string|
          array1 << [string.slice!(0..1)]
