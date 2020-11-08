@@ -39,14 +39,8 @@ class Dictionary
     end
   end
 
-  def separate_word(word)
-    word.split("").collect do |word|
-      word 
-    end
-  end
-
   def translate_word(word)
-    separate_word(word).collect do |letter|
+    word.chars.map do |letter|
       translate_letter(letter)
     end
   end
