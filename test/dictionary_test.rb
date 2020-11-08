@@ -86,6 +86,13 @@ class DictionaryTest < Minitest::Test
     assert_equal expected, @dictionary.create_strings(block)
   end
 
+  def test_it_can_determine_number_of_letters
+    block    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
+    assert_equal 8, @dictionary.num_of_letters(block)
+    block     = "0..0\n000.\n....\n"
+     assert_equal 2, @dictionary.num_of_letters(block)
+  end
+
   # def test_it_can_convert_braille_block_into_linear_string
   #   block    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
   #   expected = "00.000.0..000.000.0.000...0.0..00.....0.....0.00"
