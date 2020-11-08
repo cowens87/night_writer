@@ -4,7 +4,7 @@ handle        = File.open(ARGV[0], "r")
 message       = handle.read.downcase.chomp
 handle.close
 
-char_limit    = message.scan((/.{1,80}/))
+char_limit    = message.scan((/.{1,40}/))
 final_message = char_limit[0]
 
 dictionary    = Dictionary.new
