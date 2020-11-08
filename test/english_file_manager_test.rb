@@ -12,4 +12,9 @@ class EnglishFileManagerTest < Minitest::Test
   def test_it_exists_and_has_attributes
     assert_instance_of EnglishFileManager, @manager
   end
+
+  def test_it_can_read_a_file
+    
+  
+  end
 end
