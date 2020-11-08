@@ -83,13 +83,13 @@ class DictionaryTest < Minitest::Test
   end
 
   # Braille to English
-  def test_it_can_create_strings_from_braille_block
+  def test_it_can_create_separate_braille_by_new_lines
     input    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
     expected = ["00.000.0..000.00", "0.0.000...0.0..0", "0.....0.....0.00"]
     assert_equal expected, @dictionary.separate_braille_by_new_line(input)
   end
 
-  def test_it_can_determine_number_of_letters
+  def test_it_can_count_number_of_letters
     input    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
     assert_equal 8, @dictionary.num_of_letters(input)
     input    = "0..0\n000.\n....\n"
