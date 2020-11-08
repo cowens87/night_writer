@@ -58,8 +58,8 @@ class DictionaryTest < Minitest::Test
 
   def test_it_can_translate_one_word_to_braille 
     assert_equal [['00', '0.', '0.'], ['.0', '0.', '..'],['00', '00', '..']], @dictionary.translate_word('pig')
-    assert_equal [['00', '0.', '0.'], ['.0', '0.', '..'],['00', '00', '..']], @dictionary.translate_word('pop')
-    assert_equal [['00', '0.', '0.'], ['.0', '0.', '..'],['00', '00', '..']], @dictionary.translate_word('dad')
+    assert_equal [["00", "0.", "0."], ["0.", ".0", "0."], ["00", "0.", "0."]], @dictionary.translate_word('pop')
+    assert_equal [["00", ".0", ".."], ["0.", "..", ".."], ["00", ".0", ".."]], @dictionary.translate_word('dad')
   end
 
   def test_it_can_break_each_letter_down_by_top_middle_and_bottom_index
