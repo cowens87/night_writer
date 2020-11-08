@@ -11,7 +11,7 @@ class DictionaryTest < Minitest::Test
     assert_instance_of Dictionary, @dictionary
   end
 
-  def test_it_can_create_alphabet 
+  def test_it_can_create_an_alphabet 
     expected = {
       'a' => ['0.', '..', '..'],
       'b' => ['0.', '0.', '..'],
@@ -46,13 +46,40 @@ class DictionaryTest < Minitest::Test
 
   def test_it_can_translate_one_letter_to_braille
     assert_equal ['0.', '00', '..'], @dictionary.translate_letter('h')
+    assert_equal ["00", "..", "0."], @dictionary.translate_letter('m')
+    assert_equal ['0.', '..', '00'], @dictionary.translate_letter('u')
   end
 
   def test_it_can_separate_a_word
     assert_equal ['p', 'i', 'g'], @dictionary.separate_word('pig')
+    assert_equal ["g", "r", "a", "p", "e", "s"], @dictionary.separate_word('grapes')
+    assert_equal ["m", "a", "n", "g", "o", "s"], @dictionary.separate_word('mangos')
   end
 
   def test_it_can_translate_one_word_to_braille 
     assert_equal [['00', '0.', '0.'], ['.0', '0.', '..'],['00', '00', '..']], @dictionary.translate_word('pig')
+    assert_equal [["00", "0.", "0."], ["0.", ".0", "0."], ["00", "0.", "0."]], @dictionary.translate_word('pop')
+    assert_equal [["00", ".0", ".."], ["0.", "..", ".."], ["00", ".0", ".."]], @dictionary.translate_word('dad')
+  end
+
+  def test_it_can_break_each_letter_down_by_top_middle_and_bottom_index
+    expected = [["0.", ".0"], ["00", "0."], ["..", ".."]]
+    assert_equal expected, @dictionary.braille_split_top_mid_bottom('hi')
+    expected = [["00", "0."], [".0", ".0"], ["0.", "0."]]
+    assert_equal expected, @dictionary.braille_split_top_mid_bottom('no')
+  end
+
+  def test_it_can_convert_braille_array_into_linear_lines
+    expected = ["0.,.0\n", "00,0.\n", "..,..\n"]
+    assert_equal expected, @dictionary.braille_columns_to_lines('hi')
+    expected = ["00,0.\n", ".0,.0\n", "0.,0.\n"]
+    assert_equal expected, @dictionary.braille_columns_to_lines('no')
+  end
+
+  def test_it_can_create_braille_word_structure
+    expected = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
+    assert_equal expected, @dictionary.translator('pigs fly')
+    expected = "0..0\n000.\n....\n"
+    assert_equal expected, @dictionary.translator('hi')
   end
 end
