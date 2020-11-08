@@ -44,6 +44,8 @@ class DictionaryTest < Minitest::Test
     assert_equal expected, @dictionary.alphabet
   end
 
+  # English to Braille
+
   def test_it_can_translate_one_letter_to_braille
     assert_equal ['0.', '00', '..'], @dictionary.translate_letter('h')
     assert_equal ["00", "..", "0."], @dictionary.translate_letter('m')
@@ -76,4 +78,12 @@ class DictionaryTest < Minitest::Test
     expected = "0..0\n000.\n....\n"
     assert_equal expected, @dictionary.translator('hi')
   end
+
+  # Braille to English
+
+  def test_it_can_convert_braille_block_into_linear_string
+    block   = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
+    expected = "00.000.0..000.000.0.000...0.0..00.....0.....0.00"
+    assert_equal expected, @dictionary.braille_string(block)
+    end
 end

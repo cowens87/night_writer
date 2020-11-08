@@ -58,4 +58,17 @@ class Dictionary
   def translator(phrase)
     braille_columns_to_lines(phrase).join(",").gsub(",","")
   end
+
+  # Braille to English
+     def braille_string(input)
+      array1 = []
+      strings = input.split("\n")
+      letter_count = (input.split[0].length)/2
+      letter_count.times do
+       strings.each do |string|
+         array1 << [string.slice!(0..1)]
+       end
+     end
+     array1.join
+   end
 end
