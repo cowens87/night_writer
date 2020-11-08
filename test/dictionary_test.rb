@@ -50,12 +50,6 @@ class DictionaryTest < Minitest::Test
     assert_equal ['0.', '..', '00'], @dictionary.translate_letter('u')
   end
 
-  def test_it_can_separate_a_word
-    assert_equal ['p', 'i', 'g'], @dictionary.separate_word('pig')
-    assert_equal ["g", "r", "a", "p", "e", "s"], @dictionary.separate_word('grapes')
-    assert_equal ["m", "a", "n", "g", "o", "s"], @dictionary.separate_word('mangos')
-  end
-
   def test_it_can_translate_one_word_to_braille 
     assert_equal [['00', '0.', '0.'], ['.0', '0.', '..'],['00', '00', '..']], @dictionary.translate_word('pig')
     assert_equal [["00", "0.", "0."], ["0.", ".0", "0."], ["00", "0.", "0."]], @dictionary.translate_word('pop')

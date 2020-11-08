@@ -35,18 +35,12 @@ class Dictionary
 
   def translate_letter(letter)
     @alphabet[letter].collect do |braille_char|
-      "#{braille_char}"
-    end
-  end
-
-  def separate_word(word)
-    word.split("").collect do |word|
-      word 
+      braille_char
     end
   end
 
   def translate_word(word)
-    separate_word(word).collect do |letter|
+    word.chars.collect do |letter|
       translate_letter(letter)
     end
   end
