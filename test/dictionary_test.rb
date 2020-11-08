@@ -96,6 +96,12 @@ class DictionaryTest < Minitest::Test
     assert_equal expected, @dictionary.join_braille_characters(input)
   end
 
+  def test_it_can_separate_braille_characters
+    input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
+    expected = ["0.00..", "0..0..", "0.0.0.", "0.0.0.", "0..00.", "......", ".000.0", "0..00.", "0.000.", "0.0.0.", "00.0.."]
+    assert_equal expected, @dictionary.separate_braille_chars(input)
+  end
+
   def test_it_can_find_braille_characters
     input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
     assert_equal ['0.00..'], @dictionary.braille_character(input).first
