@@ -33,6 +33,7 @@ class Dictionary
       }
   end
 
+  # English to Braille
   def translate_letter(letter)
     @alphabet[letter].collect do |braille_char|
       braille_char
@@ -79,7 +80,7 @@ class Dictionary
     join_braille_characters(input).scan(/.{6}/)
   end
 
-  def braille_character(input)
+  def find_braille_character(input)
     separate_braille_chars(input).collect do |braille_letter|
       [braille_letter]
     end

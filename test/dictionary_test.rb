@@ -104,6 +104,11 @@ class DictionaryTest < Minitest::Test
 
   def test_it_can_find_braille_characters
     input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
-    assert_equal ['0.00..'], @dictionary.braille_character(input).first
+    assert_equal ['0.00..'], @dictionary.find_braille_character(input).first
+  end
+
+  def test_it_can_translate_from_braille_to_english
+    input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
+    assert_equal 'hello world', @dictionary.braille_translator(input)
   end
 end
