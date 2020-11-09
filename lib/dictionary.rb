@@ -37,5 +37,9 @@ class Dictionary
     @alphabet[letter]
   end
 
-  
+  def english_character(symbol)
+    @alphabet.invert[symbol]
+  end
+
+
 end
