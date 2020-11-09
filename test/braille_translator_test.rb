@@ -50,6 +50,12 @@ class BrailleTranslatorTest < Minitest::Test
     assert_equal ['0.00..'], @braille_translator.find_braille_character(input).first
   end
 
+  def test_it_can_join_braille_dictionary_keys
+    input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
+    expected = ["0.00..", "0..0..", "0.0.0.", "0.0.0.", "0..00.", "......", ".000.0", "0..00.", "0.000.", "0.0.0.", "00.0.."]
+    assert_equal expected, @braille_translator.join_braille_keys(input)
+  end
+
   def test_it_can_translate_from_braille_to_english
     input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
     assert_equal 'hello world', @braille_translator.braille_translator(input)
