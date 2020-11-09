@@ -7,7 +7,9 @@ class BrailleTranslator
     alphabet.invert
   end
 
-  
+  def translate_braille_char(letter)
+    braille_dictionary[letter]
+  end
   
   def num_of_letters(input)
     ((input.split[0].length) / 2)
