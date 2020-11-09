@@ -67,5 +67,7 @@ class BrailleTranslatorTest < Minitest::Test
   def test_it_can_translate_from_braille_to_english
     input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
     assert_equal 'hello world', @braille_translator.braille_translator(input)
+    input    = "0..0\n000.\n....\n"
+    assert_equal 'hi', @braille_translator.braille_translator(input)
   end
 end
