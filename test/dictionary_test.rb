@@ -82,23 +82,43 @@ class DictionaryTest < Minitest::Test
     assert_equal expected, @dictionary.translator('hi')
   end
 
-  # Braille to English
-  def test_it_can_create_strings_from_braille_block
-    input    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
-    expected = ["00.000.0..000.00", "0.0.000...0.0..0", "0.....0.....0.00"]
-    assert_equal expected, @dictionary.separate_braille_by_new_line(input)
-  end
+  # def test_it_can_create_new_line_at_forty_english_characters
 
-  def test_it_can_determine_number_of_letters
+  # end
+
+  # Braille to English
+  def test_it_can_count_number_of_letters
     input    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
     assert_equal 8, @dictionary.num_of_letters(input)
     input    = "0..0\n000.\n....\n"
-     assert_equal 2, @dictionary.num_of_letters(input)
+    assert_equal 2, @dictionary.num_of_letters(input)
   end
 
   def test_it_can_convert_braille_input_into_linear_string
-    input    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
-    expected = "00.000.0..000.000.0.000...0.0..00.....0.....0.00"
-    assert_equal expected, @dictionary.braille_string(input)
+    input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
+    expected = "0.00..0..0..0.0.0.0.0.0.0..00........000.00..00.0.000.0.0.0.00.0.."
+    assert_equal expected, @dictionary.join_braille_characters(input)
+  end
+
+  def test_it_can_separate_braille_characters
+    input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
+    expected = ["0.00..", "0..0..", "0.0.0.", "0.0.0.", "0..00.", "......", ".000.0", "0..00.", "0.000.", "0.0.0.", "00.0.."]
+    assert_equal expected, @dictionary.separate_braille_chars(input)
+  end
+
+  def test_it_can_find_braille_characters
+    input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
+    assert_equal ['0.00..'], @dictionary.find_braille_character(input).first
+  end
+
+  def test_it_the_alphabet_has_been_reversed
+    expected = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 
+      "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
+    assert_equal expected, @dictionary.braille_dictionary.values
+  end
+
+  def test_it_can_translate_from_braille_to_english
+    input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
+    assert_equal 'hello world', @dictionary.braille_translator(input)
   end
 end
