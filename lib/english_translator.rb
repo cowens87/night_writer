@@ -28,18 +28,13 @@ class EnglishTranslator
   def final_braille(phrase)
     braille_columns_to_lines(phrase).join(",").gsub(",","")
   end
-    def character_limit(phrase)
+
+   def character_limit(phrase)
     phrase.scan(/.{1,40}/)
   end
 
-  #  def translate_organized_message
-  #   character_limit.map do |text|
-  #     EnglishBraille.new.translator(text)
-  #   end.join("\n")
-  # end
-
   def translator(phrase)
-     character_limit(phrase).map do |text|
+    character_limit(phrase).collect do |text|
       EnglishTranslator.new.final_braille(text)
     end.join("\n")
   end
