@@ -6,7 +6,7 @@ class EnglishTranslator
   def translate_letter(letter)
     lookup_character(letter.downcase)[1]
   end
-
+  
   def translate_word(word)
     word.chars.collect do |letter|
       translate_letter(letter)
