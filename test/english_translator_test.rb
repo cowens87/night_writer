@@ -18,5 +18,14 @@ class EnglishTranslatorTest < Minitest::Test
     assert_equal ['0.', '..', '00'], @eng_translator.translate_letter('u')
   end
 
+  def test_it_can_translate_one_word_to_braille 
+    expected = [['00', '0.', '0.'], ['.0', '0.', '..'],['00', '00', '..']]
+    assert_equal expected, @dictionary.translate_word('pig')
+    expected = [["00", "0.", "0."], ["0.", ".0", "0."], ["00", "0.", "0."]]
+    assert_equal expected, @dictionary.translate_word('pop')
+    expected = [["00", ".0", ".."], ["0.", "..", ".."], ["00", ".0", ".."]]
+    assert_equal expected, @dictionary.translate_word('dad')
+  end
+
 
 end

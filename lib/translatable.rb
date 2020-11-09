@@ -31,5 +31,21 @@ module Translatable
       ' ' => ['..', '..', '..']
       }
   end
+
+  def lookup(input)
+    alphabet[input]
+  end
+
+  #  def translate_letter(letter)
+  #   @alphabet[letter].collect do |braille_char|
+  #     braille_char
+  #   end
+  # end
+
+  # def find_braille_character(input)
+  #   separate_braille_chars(input).collect do |braille_letter|
+  #     [braille_letter]
+  #   end
+  # end
   
 end

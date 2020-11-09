@@ -81,6 +81,7 @@ class Dictionary
   end
 
   def find_braille_character(input)
+    require 'pry'; binding.pry
     separate_braille_chars(input).collect do |braille_letter|
       [braille_letter]
     end
