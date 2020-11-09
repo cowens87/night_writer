@@ -54,7 +54,6 @@ class EnglishTranslatorTest < Minitest::Test
     assert_equal expected, @englator.split_by_character_limit(input)
   end
 
-
   def test_it_can_create_braille_word_structure
     expected = "0..0\n000.\n....\n"
     assert_equal expected, @englator.translator('hi')

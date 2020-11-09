@@ -31,4 +31,9 @@ module Translatable
       ' ' => ['..', '..', '..']
       }
   end
+
+
+  def lookup_character(k, v)
+    alphabet[key]
+  end
 end
