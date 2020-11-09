@@ -25,7 +25,7 @@ class BrailleTranslator
     braille_chars = []
     positions = input.split("\n")
     num_of_letters(input).times do
-      positions.flat_map do |position|
+      positions.each do |position|
         braille_chars << [position.slice!(0..1)]
       end
     end
