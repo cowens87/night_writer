@@ -5,13 +5,13 @@ message       = handle.read.downcase.chomp
 handle.close
 
 char_limit    = message.scan((/.{1,40}/))
-final_message = char_limit[0]
 
 dictionary    = Dictionary.new
 
-translator    = dictionary.translator(final_message)
+final_message = char_limit.map {|line| dictionary.translator(line)}.join("\n")
+
 writer        = File.open(ARGV[1], "w")
-writer.write(translator)
+writer.write(final_message)
 writer.close
 
 puts "Created #{ARGV[1]} containing #{message.length} characters"
