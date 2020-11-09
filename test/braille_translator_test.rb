@@ -35,7 +35,7 @@ class BrailleTranslatorTest < Minitest::Test
   def test_it_can_convert_braille_input_into_linear_string
     input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
     expected = "0.00..0..0..0.0.0.0.0.0.0..00........000.00..00.0.000.0.0.0.00.0.."
-    assert_equal expected, @braillator.create_braille_structure(input)
+    assert_equal expected, @braillator.restructure_braille_character(input)
   end
 
   def test_it_can_separate_braille_characters

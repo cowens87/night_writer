@@ -21,7 +21,7 @@ class BrailleTranslator
     ((input.split[0].length) / 2)
   end
 
-  def create_braille_structure(input)
+  def restructure_braille_character(input)
     linear_braille_chars = []
     positions = input.split("\n")
     num_of_letters(input).times do
@@ -33,7 +33,7 @@ class BrailleTranslator
   end
 
   def separate_braille_chars(input)
-    create_braille_structure(input).scan(/.{6}/)
+    restructure_braille_character(input).scan(/.{6}/)
   end
 
   def find_braille_character(input)
