@@ -25,7 +25,23 @@ class EnglishTranslator
     end
   end
 
-  def translator(phrase)
+  def milk(phrase)
     braille_columns_to_lines(phrase).join(",").gsub(",","")
+  end
+    def organize_message(phrase)
+    phrase.scan(/.{1,40}/)
+  end
+
+  #  def translate_organized_message
+  #   organize_message.map do |text|
+  #     EnglishBraille.new.translator(text)
+  #   end.join("\n")
+  # end
+
+  def translator(phrase)
+    # require 'pry'; binding.pry
+     organize_message(phrase).map do |text|
+      EnglishTranslator.new.milk(text)
+    end.join("\n")
   end
 end
