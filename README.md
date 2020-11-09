@@ -26,7 +26,7 @@ The English Translator Class takes the data passed on from the night writer CLI 
 The Braille Translator Class takes the data passed on from the night reader CLI and is responsible for the methods that translate the message to braille. It utilizes the methods from the Translatable Module to lookup Braille characters and return their English letter equivalents.
 
 ### Translatable Module
-Translatable contains all of the necessary methods which utilize the the alphabet to translate from English to Braille and vice versa. This module is utilized by both Braille Translator and English Translator.
+Translatable contains all of the necessary methods which utilize the the alphabet to translate from English to Braille and vice versa. Additionally, it contains a stateful attribute the alphabet method. This module is utilized by both Braille Translator and English Translator.
 
 ### CLI
 The command line interface works through the `night_writer.rb` and `night_reader.rb ` files. The files handle reading in the message, or translated files, respectfully, and writing the english or braille message into a new file. It also outputs a message to the screen.

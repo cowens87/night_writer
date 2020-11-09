@@ -21,27 +21,19 @@ class BrailleTranslator
     ((input.split[0].length) / 2)
   end
 
-  def join_braille_characters(input)
-    # braille_chars = []
-    # positions = input.split("\n")
-    # num_of_letters(input).times do
-    #   positions.each do |position|
-    #     braille_chars << [position.slice!(0..1)]
-    #   end
-    # end
-    # braille_chars.join
-
+  def create_braille_structure(input)
+    linear_braille_chars = []
     positions = input.split("\n")
     num_of_letters(input).times do
-      positions.each_with_object([]) do |position, braille_chars|
-        braille_chars << [position.slice!(0..1)]
+      positions.each do |position|
+        linear_braille_chars << [position.slice!(0..1)]
       end
-    end.join
-    # braille_chars.join
+    end
+    linear_braille_chars.join
   end
 
   def separate_braille_chars(input)
-    join_braille_characters(input).scan(/.{6}/)
+    create_braille_structure(input).scan(/.{6}/)
   end
 
   def find_braille_character(input)
