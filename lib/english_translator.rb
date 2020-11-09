@@ -29,7 +29,7 @@ class EnglishTranslator
     braille_columns_to_lines(phrase).join(",").gsub(",","")
   end
 
-   def split_by_character_limit(phrase)
+  def split_by_character_limit(phrase)
     phrase.scan(/.{1,40}/)
   end
 
