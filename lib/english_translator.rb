@@ -25,7 +25,17 @@ class EnglishTranslator
     end
   end
 
-  def translator(phrase)
+  def final_braille(phrase)
     braille_columns_to_lines(phrase).join(",").gsub(",","")
+  end
+
+   def split_by_character_limit(phrase)
+    phrase.scan(/.{1,40}/)
+  end
+
+  def translator(phrase)
+    split_by_character_limit(phrase).collect do |word|
+      EnglishTranslator.new.final_braille(word)
+    end.join("\n")
   end
 end
