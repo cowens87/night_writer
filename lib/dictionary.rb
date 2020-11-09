@@ -86,13 +86,13 @@ class Dictionary
     end
   end
 
-  def braille_dictionary(input)
+  def braille_dictionary
     @alphabet.invert
   end
 
   def join_braille_dictionary_keys(input)
     combined = {}
-    braille_dictionary(input).each do |braille, letter|
+    braille_dictionary.each do |braille, letter|
       combined[[braille.join(" ").gsub(/\s+/, "")]] = letter
     end
     combined
