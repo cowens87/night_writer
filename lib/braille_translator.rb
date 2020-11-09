@@ -42,7 +42,6 @@ class BrailleTranslator
     end
   end
 
-
   def join_braille_dictionary_keys(input)
     combined = {}
     braille_dictionary.each do |braille, letter|
