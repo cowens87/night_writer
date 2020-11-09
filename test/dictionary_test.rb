@@ -42,4 +42,8 @@ class DictionaryTest < Minitest::Test
       }
     assert_equal expected, @dictionary.alphabet
   end
+
+  def test_it_can_find_an_braille_character
+    assert_equal ['00', '..', '00'], @dictionary.braille_character
+  end
 end
