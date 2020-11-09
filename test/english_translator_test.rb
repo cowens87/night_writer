@@ -25,7 +25,7 @@ class EnglishTranslatorTest < Minitest::Test
     assert_equal expected, @englator.translate_word('dad')
   end
 
-    def test_it_can_break_each_letter_down_by_top_middle_and_bottom_index
+  def test_it_can_break_each_letter_down_by_top_middle_and_bottom_index
     expected = [["0.", ".0"], ["00", "0."], ["..", ".."]]
     assert_equal expected, @englator.braille_split_top_mid_bottom('hi')
     expected = [["00", "0."], [".0", ".0"], ["0.", "0."]]
