@@ -82,6 +82,10 @@ class DictionaryTest < Minitest::Test
     assert_equal expected, @dictionary.translator('hi')
   end
 
+  # def test_it_can_create_new_line_at_forty_english_characters
+
+  # end
+
   # Braille to English
   def test_it_can_count_number_of_letters
     input    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"

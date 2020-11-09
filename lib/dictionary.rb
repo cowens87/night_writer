@@ -59,7 +59,7 @@ class Dictionary
   def translator(phrase)
     braille_columns_to_lines(phrase).join(",").gsub(",","")
   end
-
+  
   # Braille to English
   def num_of_letters(input)
     ((input.split[0].length) / 2)
@@ -84,5 +84,23 @@ class Dictionary
     separate_braille_chars(input).collect do |braille_letter|
       [braille_letter]
     end
+  end
+
+  def braille_dictionary
+    @alphabet.invert
+  end
+
+  def join_braille_dictionary_keys(input)
+    combined = {}
+    braille_dictionary.each do |braille, letter|
+      combined[[braille.join(" ").gsub(/\s+/, "")]] = letter
+    end
+    combined
+  end
+
+  def braille_translator(input)
+    find_braille_character(input).each_with_object([]) do |braille, english|
+      english << join_braille_dictionary_keys(input)[braille]
+    end.join("")  
   end
 end
