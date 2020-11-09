@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require './test/test_helper'
 require './lib/braille_translator'
 
 class BrailleTranslatorTest < Minitest::Test
@@ -41,10 +40,8 @@ class BrailleTranslatorTest < Minitest::Test
 
   def test_it_can_separate_braille_characters
     input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
-    expected = [
-                "0.00..", "0..0..", "0.0.0.", "0.0.0.", "0..00.", "......", 
-                ".000.0", "0..00.", "0.000.", "0.0.0.", "00.0.."
-              ]
+    expected = ["0.00..", "0..0..", "0.0.0.", "0.0.0.", "0..00.", "......", 
+                ".000.0", "0..00.", "0.000.", "0.0.0.", "00.0.."]
     assert_equal expected, @braillator.separate_braille_chars(input)
   end
 
