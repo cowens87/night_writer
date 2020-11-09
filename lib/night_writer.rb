@@ -7,9 +7,9 @@ handle.close
 char_limit    = message.scan((/.{1,80}/))
 final_message = char_limit[0]
 
-dictionary    = Dictionary.new
+englator      = EnglishTranslator.new
 
-translator    = dictionary.translator(final_message)
+translator    = englator.translator(final_message)
 writer        = File.open(ARGV[1], "w")
 writer.write(translator)
 writer.close
