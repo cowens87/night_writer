@@ -16,6 +16,10 @@ class EnglishTranslatorTest < Minitest::Test
     assert_equal ['0.', '..', '00'], @englator.translate_letter('u')
   end
 
+  def test_it_can_downcase_caps_before_translating
+    assert_equal ["00", "..", "0."], @englator.translate_letter('M')
+  end
+
   def test_it_can_translate_one_word_to_braille 
     expected = [['00', '0.', '0.'], ['.0', '0.', '..'],['00', '00', '..']]
     assert_equal expected, @englator.translate_word('pig')
@@ -49,6 +53,7 @@ class EnglishTranslatorTest < Minitest::Test
     expected = ["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "a"]
     assert_equal expected, @englator.split_by_character_limit(input)
   end
+
 
   def test_it_can_create_braille_word_structure
     expected = "0..0\n000.\n....\n"
