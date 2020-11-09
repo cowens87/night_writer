@@ -44,6 +44,6 @@ class DictionaryTest < Minitest::Test
   end
 
   def test_it_can_find_an_braille_character
-    assert_equal ['00', '..', '00'], @dictionary.braille_character
+    assert_equal ['00', '..', '00'], @dictionary.braille_character('x')
   end
 end

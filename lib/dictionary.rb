@@ -32,4 +32,8 @@ class Dictionary
       ' ' => ['..', '..', '..']
       }
   end
+
+  def braille_character(letter)
+    @alphabet[letter]
+  end
 end
