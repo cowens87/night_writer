@@ -32,9 +32,9 @@ module Translatable
       }
   end
 
-  def lookup(input)
-    alphabet[input]
-  end
+  # def lookup(input)
+  #   alphabet[input]
+  # end
 
   #  def translate_letter(letter)
   #   @alphabet[letter].collect do |braille_char|

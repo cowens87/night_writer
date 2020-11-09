@@ -4,7 +4,7 @@ class EnglishTranslator
   include Translatable
 
   def translate_letter(letter)
-    lookup(letter).collect do |braille_char|
+    alphabet[letter].collect do |braille_char|
       braille_char
     end
   end
