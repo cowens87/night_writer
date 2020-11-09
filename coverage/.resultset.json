@@ -63,7 +63,7 @@
           null
         ]
       },
-      "/Users/cydkyd/turing/1mod/projects/2010/night_writer/lib/translatable.rb": {
+      "/Users/cydkyd/turing/1mod/projects/2010/night_writer/module/translatable.rb": {
         "lines": [
           1,
           null,
@@ -216,6 +216,6 @@
         ]
       }
     },
-    "timestamp": 1604940855
+    "timestamp": 1604944242
   }
 }

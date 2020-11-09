@@ -1,4 +1,4 @@
-require './lib/translatable'
+require './module/translatable'
 
 class BrailleTranslator 
   include Translatable
