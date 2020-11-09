@@ -8,6 +8,7 @@ class BrailleTranslator
   end
 
   def translate_braille_char(symbol)
+    require 'pry'; binding.pry
     braille_dictionary[symbol]
   end
 

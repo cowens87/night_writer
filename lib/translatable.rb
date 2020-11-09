@@ -32,8 +32,9 @@ module Translatable
       }
   end
 
-
-  def lookup_character(k, v)
-    alphabet[key]
+  def lookup_character(input)
+    alphabet.find do |letter, symbol|
+      letter == input || symbol == input 
+    end 
   end
 end
