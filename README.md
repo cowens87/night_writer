@@ -14,3 +14,6 @@ The design strategy of Night Writer was to fully encapsulate each piece of funct
 
 ### English Translator Class
 The English Translator Class takes the data passed on from the night writer CLI and is responsible for the methods that translate the message to braille. It utilizes the methods from the Translatable Module to lookup English letters and return their Braille equivalents.
+
+### Braille Translator Class
+The Braille Translator Class takes the data passed on from the night reader CLI and is responsible for the methods that translate the message to braille. It utilizes the methods from the Translatable Module to lookup Braille characters and return their English letter equivalents.
