@@ -1,18 +1,7 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/dictionary'
+module Translatable
 
-class DictionaryTest < Minitest::Test
-  def setup
-    @dictionary = Dictionary.new
-  end
-
-  def test_it_exists_and_has_attributes
-    assert_instance_of Dictionary, @dictionary
-  end
-
-  def test_it_can_create_an_alphabet 
-    expected = {
+  def alphabet
+    {
       'a' => ['0.', '..', '..'],
       'b' => ['0.', '0.', '..'],
       'c' => ['00', '..', '..'],
@@ -41,6 +30,22 @@ class DictionaryTest < Minitest::Test
       'z' => ['0.', '.0', '00'],
       ' ' => ['..', '..', '..']
       }
-    assert_equal expected, @dictionary.alphabet
   end
+
+  # def lookup(input)
+  #   alphabet[input]
+  # end
+
+  #  def translate_letter(letter)
+  #   @alphabet[letter].collect do |braille_char|
+  #     braille_char
+  #   end
+  # end
+
+  # def find_braille_character(input)
+  #   separate_braille_chars(input).collect do |braille_letter|
+  #     [braille_letter]
+  #   end
+  # end
+  
 end
