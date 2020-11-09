@@ -6,6 +6,7 @@
   - [English Translator](#english_translator-class)
   - [Braille Translator](#braille_translator-class)
   - [Translatable](#translatable-module)
+  - [CLI](#cli)
 
 ## Overview
 The idea of Night Writing was first developed for Napoleon’s army so soldiers could communicate silently at night without light. The concept of night writing led to Louis Braille’s development of his Braille tactile writing system. While this project's scope is much smaller, it is capable of translating a text message from English to Braille by reading the characters in the `message.txt` file and writing the English word into the `braille.txt` file. This program also translates the same `braille.txt` file and writes to an `original_message.txt` file through the command line interface.
@@ -21,3 +22,6 @@ The Braille Translator Class takes the data passed on from the night reader CLI 
 
 ### Translatable Module
 Translatable contains all of the necessary methods which utilize the the alphabet to translate from English to Braille and vice versa. This module is utilized by both Braille Translator and English Translator.
+
+### CLI
+The command line interface works through the `night_writer.rb` and `night_reader.rb ` files. The files handle reading in the message, or translated files, respectfully, and writing the english or braille message into a new file. It also outputs a message to the screen.
