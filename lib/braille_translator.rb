@@ -42,7 +42,7 @@ class BrailleTranslator
     end
   end
 
-  def join_braille_dictionary_keys(input)
+  def join_braille_keys(input)
     combined = {}
     braille_dictionary.each do |braille, letter|
       combined[[braille.join(" ").gsub(/\s+/, "")]] = letter
@@ -52,7 +52,7 @@ class BrailleTranslator
 
   def braille_translator(input)
     find_braille_character(input).each_with_object([]) do |braille, english|
-      english << join_braille_dictionary_keys(input)[braille]
+      english << join_braille_keys(input)[braille]
     end.join("")  
   end
 end
