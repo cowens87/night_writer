@@ -20,6 +20,11 @@ class BrailleTranslatorTest < Minitest::Test
   def test_it_can_translate_one_braille_character
     assert_equal 'g', @braille_translator.translate_braille_char(['00', '00', '..'])
   end
+  
+  def test_it_can_translate_multiple_characters
+    input = [['00', '0.', '0.'], ['.0', '0.', '..'],['00', '00', '..']]
+    assert_equal 'pig', @braille_translator.translate_braille_word(input)
+  end
 
   def test_it_can_count_number_of_letters
     input    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
