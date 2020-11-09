@@ -20,11 +20,11 @@ class EnglishTranslatorTest < Minitest::Test
 
   def test_it_can_translate_one_word_to_braille 
     expected = [['00', '0.', '0.'], ['.0', '0.', '..'],['00', '00', '..']]
-    assert_equal expected, @dictionary.translate_word('pig')
+    assert_equal expected, @eng_translator.translate_word('pig')
     expected = [["00", "0.", "0."], ["0.", ".0", "0."], ["00", "0.", "0."]]
-    assert_equal expected, @dictionary.translate_word('pop')
+    assert_equal expected, @eng_translator.translate_word('pop')
     expected = [["00", ".0", ".."], ["0.", "..", ".."], ["00", ".0", ".."]]
-    assert_equal expected, @dictionary.translate_word('dad')
+    assert_equal expected, @eng_translator.translate_word('dad')
   end
 
 
