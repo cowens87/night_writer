@@ -25,7 +25,7 @@ class EnglishTranslator
     end
   end
 
-  def milk(phrase)
+  def final_braille(phrase)
     braille_columns_to_lines(phrase).join(",").gsub(",","")
   end
     def character_limit(phrase)
@@ -39,9 +39,8 @@ class EnglishTranslator
   # end
 
   def translator(phrase)
-    # require 'pry'; binding.pry
      character_limit(phrase).map do |text|
-      EnglishTranslator.new.milk(text)
+      EnglishTranslator.new.final_braille(text)
     end.join("\n")
   end
 end
