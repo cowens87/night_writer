@@ -27,5 +27,26 @@ class EnglishTranslatorTest < Minitest::Test
     assert_equal expected, @eng_translator.translate_word('dad')
   end
 
+    def test_it_can_break_each_letter_down_by_top_middle_and_bottom_index
+    expected = [["0.", ".0"], ["00", "0."], ["..", ".."]]
+    assert_equal expected, @eng_translator.braille_split_top_mid_bottom('hi')
+    expected = [["00", "0."], [".0", ".0"], ["0.", "0."]]
+    assert_equal expected, @eng_translator.braille_split_top_mid_bottom('no')
+  end
+
+  def test_it_can_convert_braille_array_into_linear_lines
+    expected = ["0.,.0\n", "00,0.\n", "..,..\n"]
+    assert_equal expected, @eng_translator.braille_columns_to_lines('hi')
+    expected = ["00,0.\n", ".0,.0\n", "0.,0.\n"]
+    assert_equal expected, @eng_translator.braille_columns_to_lines('no')
+  end
+
+  def test_it_can_create_braille_word_structure
+    expected = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
+    assert_equal expected, @eng_translator.translator('pigs fly')
+    expected = "0..0\n000.\n....\n"
+    assert_equal expected, @eng_translator.translator('hi')
+  end
+
 
 end
