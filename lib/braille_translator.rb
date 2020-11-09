@@ -8,7 +8,7 @@ class BrailleTranslator
   end
 
   def translate_braille_char(symbol)
-    braille_dictionary[symbol]
+    lookup_character(symbol)[0]
   end
 
   def translate_braille_word(symbols)

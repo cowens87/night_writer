@@ -4,9 +4,7 @@ class EnglishTranslator
   include Translatable
 
   def translate_letter(letter)
-    alphabet[letter].collect do |braille_char|
-      braille_char
-    end
+    lookup_character(letter.downcase)[1]
   end
 
   def translate_word(word)
