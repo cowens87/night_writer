@@ -4,10 +4,6 @@ class EnglishTranslator
   include Translatable
 
   def translate_letter(letter)
-    # require 'pry'; binding.pry
-    # alphabet[letter.downcase].collect do |braille_char|
-    #   braille_char
-    # end
     lookup_character(letter.downcase)[1]
   end
 
