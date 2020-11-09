@@ -3,6 +3,20 @@ require './lib/translatable'
 class BrailleTranslator 
   include Translatable
 
+  def braille_dictionary
+    alphabet.invert
+  end
+
+  def translate_braille_char(symbol)
+    braille_dictionary[symbol]
+  end
+
+  def translate_braille_word(symbols)
+    symbols.collect do |symbol|
+      translate_braille_char(symbol)
+    end
+  end
+  
   def num_of_letters(input)
     ((input.split[0].length) / 2)
   end
@@ -28,9 +42,6 @@ class BrailleTranslator
     end
   end
 
-  def braille_dictionary
-    alphabet.invert
-  end
 
   def join_braille_dictionary_keys(input)
     combined = {}
