@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require './test/test_helper'
 require './lib/english_translator'
 
 class EnglishTranslatorTest < Minitest::Test
