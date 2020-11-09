@@ -32,8 +32,19 @@ class EnglishTranslator
   end
 
   def translator(phrase)
-    split_by_character_limit(phrase).collect do |word|
-      EnglishTranslator.new.final_braille(word)
-    end.join("\n")
+    # phrase = "Martina the beautiful cockroach does not know coffee beans about love and marriage"
+    # split_by_character_limit(phrase).collect do |word|
+    #   EnglishTranslator.new.final_braille(word)
+    # end.join("\n")
+    if phrase.length >= 40
+      split_by_character_limit(phrase).collect do |word|
+        EnglishTranslator.new.final_braille(word)
+      end.join("\n")
+    else
+      less_than = [phrase]
+      less_than.collect do |word|
+        EnglishTranslator.new.final_braille(word)
+      end.join("\n") 
+    end 
   end
 end
