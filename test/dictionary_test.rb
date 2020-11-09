@@ -111,6 +111,12 @@ class DictionaryTest < Minitest::Test
     assert_equal ['0.00..'], @dictionary.find_braille_character(input).first
   end
 
+  def test_it_the_alphabet_has_been_reversed
+    expected = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 
+      "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
+    assert_equal expected, @dictionary.braille_dictionary.values
+  end
+
   def test_it_can_translate_from_braille_to_english
     input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
     assert_equal 'hello world', @dictionary.braille_translator(input)
