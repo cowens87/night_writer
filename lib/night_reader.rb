@@ -11,5 +11,4 @@ writer             = File.open(ARGV[1], "w")
 writer.write(english)
 writer.close
 
-# will need to count the translated file to get an accurate character count
 puts "Created #{ARGV[1]} containing #{english.length} characters"
