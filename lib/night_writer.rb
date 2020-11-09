@@ -1,7 +1,7 @@
 require './lib/english_translator'
 
 handle        = File.open(ARGV[0], "r")
-message       = handle.read.downcase.chomp
+message       = handle.read.chomp
 handle.close
 
 englator      = EnglishTranslator.new
