@@ -9,6 +9,6 @@ class EnglishTranslatorTest < Minitest::Test
   end
 
   def test_it_exists_and_has_attributes
-    assert_instance_of EnglishTranslatorTest, @eng_translator
+    assert_instance_of EnglishTranslator, @eng_translator
   end
 end
