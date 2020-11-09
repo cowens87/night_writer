@@ -40,7 +40,7 @@ For my project, the Braille Translator and English Translator Classes includes t
 The structure of the classes in my project are all encapsulated and have a single responsibility methods. The English Translator class specifically handles translating English letters to Braille and vice versa with the Braille Translator Class. Additionally, the Translatable module handles the querying of the alphabet and returning the character once found. All in all, I am please with my project class structure and how the code is organized. I went back and forth between using the alphabet as a class that the translators both inherited from, but ultimately decided on a module as they were both interacting with the alphabet in the same way and the translators aren't specific subclasses of the general alphabet. For this reason I felt a module worked best here.  My assessment: **3.5**
 
 ### Ruby Conventions and Mechanics
-My program does have conventional syntax and naming structures. I would say that the majority of the enumerables utilized are the most efficient. I've utilized hashes, purposeful methods such as split, and slice. I don't have any methods over 10 lines. My assessment: **3.5**
+My program does have conventional syntax and naming structures. I would say that the majority of the enumerables utilized are the most efficient. I utilized hashes, purposeful methods such as split, and slice. I don't have any methods over 10 lines. My assessment: **3.5**
 
 ### Test Driven Development
 I fully adhered to TDD throughout the project. It actually helped a ton when I was stuck with something! I've tested every line of code and have 100% coverage. My assessment: **3**
