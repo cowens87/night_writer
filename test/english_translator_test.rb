@@ -40,9 +40,12 @@ class EnglishTranslatorTest < Minitest::Test
     assert_equal expected, @englator.braille_columns_to_lines('no')
   end
 
-  def test_it_can_create_braille_word_structure
+  def test_it_can_create_final_braille_structure
     expected = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
     assert_equal expected, @englator.final_braille('pigs fly')
+  end
+
+  def test_it_can_create_braille_word_structure
     expected = "0..0\n000.\n....\n"
     assert_equal expected, @englator.translator('hi')
   end
