@@ -7,5 +7,3 @@ steps:
   commands:
   - bundle install --jobs=3 --retry=3
   - rake
-  - bundle install rspec
-  - bundle exec rspec
