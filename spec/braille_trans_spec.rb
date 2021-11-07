@@ -1,56 +1,56 @@
 require './test/test_helper'
 require './lib/braille_translator'
 
-class BrailleTranslatorTest < Minitest::Test
-  def setup
+RSpec.describe 'BrailleTranslator', type: :feature do
+  before(:each) do
     @braillator = BrailleTranslator.new
   end
-
-  def test_it_exists_and_has_attributes
-    assert_instance_of BrailleTranslator, @braillator
+  
+  it 'test it exists and has attributes' do
+    expect(@braillator).to be_a(BrailleTranslator)
   end
 
-  def test_the_alphabet_has_been_reversed
+  it 'test the alphabet has been reversed' do
     expected = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 
       "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
-    assert_equal expected, @braillator.braille_dictionary.values
+    expect(@braillator.braille_dictionary.values).to eq(expected)
   end
 
-  def test_it_can_translate_one_braille_character
-    assert_equal 'g', @braillator.translate_braille_char(['00', '00', '..'])
+  it 'test it can translate one braille character' do
+    expect(@braillator.translate_braille_char(['00', '00', '..'])).to eq('g')
   end
   
-  def test_it_can_translate_multiple_characters
+  it 'test it can translate multiple characters' do
     input = [['00', '0.', '0.'], ['.0', '0.', '..'],['00', '00', '..']]
-    assert_equal ["p", "i", "g"], @braillator.translate_braille_word(input)
+    expect(@braillator.translate_braille_word(input)).to eq(["p", "i", "g"])
   end
 
-  def test_it_can_count_number_of_letters
+  it 'test it can count number of letters' do
     input    = "00.000.0..000.00\n0.0.000...0.0..0\n0.....0.....0.00\n"
-    assert_equal 8, @braillator.num_of_letters(input)
+    expect(@braillator.num_of_letters(input)).to eq(8)
     input    = "0..0\n000.\n....\n"
-    assert_equal 2, @braillator.num_of_letters(input)
+    expect(@braillator.num_of_letters(input)).to eq(2)
   end
 
-  def test_it_can_convert_braille_input_into_linear_string
+  it 'test it can convert braille input into linear string' do
     input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
     expected = "0.00..0..0..0.0.0.0.0.0.0..00........000.00..00.0.000.0.0.0.00.0.."
-    assert_equal expected, @braillator.restructure_braille_character(input)
+    expect(@braillator.restructure_braille_character(input)).to eq(expected)
   end
 
-  def test_it_can_separate_braille_characters
+  it 'test it can separate braille characters' do
     input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
     expected = ["0.00..", "0..0..", "0.0.0.", "0.0.0.", "0..00.", "......", 
                 ".000.0", "0..00.", "0.000.", "0.0.0.", "00.0.."]
-    assert_equal expected, @braillator.separate_braille_chars(input)
+    expect(@braillator.separate_braille_chars(input)).to eq(expected)
   end
 
-  def test_it_can_find_braille_characters
+  it 'test it can find braille characters' do
     input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
-    assert_equal ['0.00..'], @braillator.find_braille_character(input).first
+    expect(@braillator.find_braille_character(input).first).to eq(['0.00..'])
   end
 
-  def test_it_can_join_braille_dictionary_keys
+  it 'test_it_can_join_braille_dictionary_keys' do
     input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
     expected = {
                 ["0....."]=>"a", ["0.0..."]=>"b", ["00...."]=>"c", ["00.0.."]=>"d", 
@@ -61,13 +61,13 @@ class BrailleTranslatorTest < Minitest::Test
                 ["0...00"]=>"u", ["0.0.00"]=>"v", [".000.0"]=>"w", ["00..00"]=>"x", 
                 ["00.000"]=>"y", ["0..000"]=>"z", ["......"]=>" "
               }
-    assert_equal expected, @braillator.join_braille_dictionary_keys(input)
+    expect(@braillator.join_braille_dictionary_keys(input)).to eq(expected)
   end
 
-  def test_it_can_translate_from_braille_to_english
+  it 'test_it_can_translate_from_braille_to_english' do
     input    = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
-    assert_equal 'hello world', @braillator.braille_translator(input)
+    expect(@braillator.braille_translator(input)).to eq('hello world')
     input    = "0..0\n000.\n....\n"
-    assert_equal 'hi', @braillator.braille_translator(input)
+    expect(@braillator.braille_translator(input)).to eq('hi')
   end
 end
